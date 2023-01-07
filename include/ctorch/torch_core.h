@@ -30,8 +30,6 @@ extern "C" {
         #else  // __GNUC__
             #define CTORCH_PUBLIC __declspec(dllexport)
         #endif // __GNUC__
-    #elif defined(BUILDING_STATIC)
-        #define CTORCH_PUBLIC
     #else // BUILDING_DLL
         #ifdef __GNUC__
             #define CTORCH_PUBLIC __attribute__((dllimport))

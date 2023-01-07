@@ -15,10 +15,15 @@
 #include "ctorch/torch_tensor.h"
 #include "common.h"
 
-
 void torch_tensor_delete(TorchTensor obj) {
     auto value = static_cast<torch::Tensor *>(obj);
     delete value;
+}
+
+void torch_tensor_result_box_delete(TensorResultBox *output){
+    if(output!= nullptr){
+        free(output);
+    }
 }
 
 size_t

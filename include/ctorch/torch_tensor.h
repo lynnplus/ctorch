@@ -35,7 +35,7 @@ typedef struct {
  * @param obj tensor
  * @param confidence_threshold
  * @param max_result_size maximum number of result boxes return <=0:no limit
- * @param outputs return bounding box array (free the array when not needed)
+ * @param outputs return bounding box array (free by the @torch_tensor_result_box_delete when not needed)
  * @param status result status, when an error occurs (code! =0)
  * @return >0:outputs size ==0:no result or outputs is nil <0:error(for detailed errors, can view status)
  */
@@ -45,6 +45,8 @@ torch_tensor_parse_to_bbox(TorchTensor obj, float confidence_threshold, int max_
 
 
 CTORCH_PUBLIC void torch_tensor_delete(TorchTensor obj);
+
+CTORCH_PUBLIC void torch_tensor_result_box_delete(TensorResultBox *output);
 
 #ifdef __cplusplus
 }
